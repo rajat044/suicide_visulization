@@ -20,6 +20,7 @@ year = st.slider('', int(min(tem_y)), int(max(tem_y)))
 
 tem_df = tem_df[tem_df.year == year]
 try: 
+	st.markdown(f'## {con} of {year}')
 	if len(df) != 0: 
 		p1 = px.bar(tem_df, x = 'age', y = 'suicides_no', 
 			color = 'sex', barmode = 'group',
