@@ -1,4 +1,4 @@
-mkdir -p ~/.streamlit_suicide_visu/
+mkdir -p ~/.streamlit/
 echo "\
 [general]\n\
 email = \"your-email@domain.com\"\n\
@@ -8,4 +8,4 @@ echo "\
 headless = true\n\
 enableCORS=false\n\
 port = $PORT\n\
-" > ~/.streamlit_suicide_visu/config.toml
+" > ~/.streamlit/config.toml
