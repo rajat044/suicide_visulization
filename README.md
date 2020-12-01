@@ -1,1 +1,1 @@
-# suicide_visulization
+# Suicide_Visulization
