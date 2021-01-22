@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import streamlit as st 
 
 
-df = pd.read_csv('E:/python_file/Suicide_Visu/dataset/suicide.csv')
+df = pd.read_csv('dataset/suicide.csv')
 
 df.drop(['country-year', ' gdp_for_year ($) ', 'gdp_per_capita ($)'], axis = 1, inplace = True)
 
