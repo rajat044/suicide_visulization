@@ -21,20 +21,19 @@ year = st.slider('', int(min(tem_y)), int(max(tem_y)))
 
 tem_df = tem_df[tem_df.year == year]
 
-fig = make_subplots(rows=1, cols=2)
+#fig = make_subplots(rows=1, cols=2)
 try: 
 	st.markdown(f'## {con} of {year}')
 	if len(df) != 0: 
 		p1 = go.bar(tem_df, x = 'age', y = 'suicides_no', 
 			color = 'sex', barmode = 'group',
 			labels = {'age': 'Age Group', 'suicides_no': 'Number of Suicides'})
-		fig.add_trace(p1, row = 1, col = 1)
+		#fig.add_trace(p1, row = 1, col = 1)
 		st.write(p1)
 
 		p2 = go.Figure(data=[go.Pie(labels=tem_df.age, values=tem_df.suicides_no, pull=[0, 0.2, 0, 0])])
-		fig.add_trace(p2, row = 1, col = 2)
-		fig.update_layout(height=600, width=800, title_text="Side By Side Subplots")
+		#fig.add_trace(p2, row = 1, col = 2)
+		#fig.update_layout(height=600, width=800, title_text="Side By Side Subplots")
 		st.write(p2)
 except: 
-	st.write(fig)
 	st.error('Data is not available')
