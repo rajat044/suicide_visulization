@@ -36,4 +36,5 @@ try:
 		fig.update_layout(height=600, width=800, title_text="Side By Side Subplots")
 		st.write(p2)
 except: 
+	st.write(fig)
 	st.error('Data is not available')
