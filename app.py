@@ -25,13 +25,14 @@ fig = make_subplots(rows=1, cols=2)
 try: 
 	st.markdown(f'## {con} of {year}')
 	if len(df) != 0: 
-		fig.add_trace(px.bar(tem_df, x = 'age', y = 'suicides_no', 
+		p1 = px.bar(tem_df, x = 'age', y = 'suicides_no', 
 			color = 'sex', barmode = 'group',
-			labels = {'age': 'Age Group', 'suicides_no': 'Number of Suicides'}))
-		#st.write(p1)
+			labels = {'age': 'Age Group', 'suicides_no': 'Number of Suicides'})
+		fig.add_trace(p1)
+		st.write(p1)
 
-		fig.add_trace(go.Figure(data=[go.Pie(labels=tem_df.age, values=tem_df.suicides_no, pull=[0, 0.2, 0, 0])]))
+		p2 = go.Figure(data=[go.Pie(labels=tem_df.age, values=tem_df.suicides_no, pull=[0, 0.2, 0, 0])])
 		fig.update_layout(height=600, width=800, title_text="Side By Side Subplots")
-		st.write(fig)
+		st.write(p2)
 except: 
 	st.error('Data is not available')
