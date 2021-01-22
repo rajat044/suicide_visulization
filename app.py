@@ -25,7 +25,7 @@ fig = make_subplots(rows=1, cols=2)
 try: 
 	st.markdown(f'## {con} of {year}')
 	if len(df) != 0: 
-		p1 = px.bar(tem_df, x = 'age', y = 'suicides_no', 
+		p1 = go.bar(tem_df, x = 'age', y = 'suicides_no', 
 			color = 'sex', barmode = 'group',
 			labels = {'age': 'Age Group', 'suicides_no': 'Number of Suicides'})
 		fig.add_trace(p1, row = 1, col = 1)
