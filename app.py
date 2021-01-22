@@ -1,6 +1,7 @@
 import pandas as pd 
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import streamlit as st 
 
 
@@ -19,15 +20,18 @@ st.markdown('## Select the Year')
 year = st.slider('', int(min(tem_y)), int(max(tem_y)))
 
 tem_df = tem_df[tem_df.year == year]
+
+fig = make_subplots(rows=1, cols=2)
 try: 
 	st.markdown(f'## {con} of {year}')
 	if len(df) != 0: 
-		p1 = px.bar(tem_df, x = 'age', y = 'suicides_no', 
+		fig.add_trace(px.bar(tem_df, x = 'age', y = 'suicides_no', 
 			color = 'sex', barmode = 'group',
-			labels = {'age': 'Age Group', 'suicides_no': 'Number of Suicides'})
-		st.write(p1)
+			labels = {'age': 'Age Group', 'suicides_no': 'Number of Suicides'}))
+		#st.write(p1)
 
-		fig = go.Figure(data=[go.Pie(labels=tem_df.age, values=tem_df.suicides_no, pull=[0, 0.2, 0, 0])])
+		fig.add_trace(go.Figure(data=[go.Pie(labels=tem_df.age, values=tem_df.suicides_no, pull=[0, 0.2, 0, 0])]))
+		fig.update_layout(height=600, width=800, title_text="Side By Side Subplots")
 		st.write(fig)
 except: 
 	st.error('Data is not available')
